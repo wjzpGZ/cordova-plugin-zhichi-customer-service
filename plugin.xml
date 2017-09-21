@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="wjzp-cordova-sobot" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>SobotPlugin</name>
+    <preference name="SOBOT_APP_KEY" default="ba19873656bb36c98c6e81c90923069d"/>
+
+    <js-module name="Sobot" src="www/SobotPlugin.js">
+        <clobbers target="Sobot"/>
+    </js-module>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="Qiyu">
+                <param name="ios-package" value="Qiyu"/>
+                <param name="onload" value="true"/>
+            </feature>
+            <preference name="QIYU_APP_KEY" value="$QIYU_APP_KEY"/>
+        </config-file>
+
+        <header-file src="src/ios/Qiyu.h"/>
+        <source-file src="src/ios/Qiyu.m"/>
+
+        <config-file target="*-Info.plist" parent="NSPhotoLibraryUsageDescription">
+            <string>请允许黔赞访问您的相册</string>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+            <string>请允许黔赞使用您手机的摄像头</string>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="NSMicrophoneUsageDescription">
+            <string>请允许黔赞使用您手机的麦克风</string>
+        </config-file>
+    </platform>
+
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="Sobot">
+                <param name="android-package" value="com.wjzp.cordova.sobot.SobotPlugin"/>
+                <param name="onload">true</param>
+            </feature>
+            <preference name="SOBOT_APP_KEY" value="$SOBOT_APP_KEY"/>
+
+        </config-file>
+        <edit-config file="AndroidManifest.xml" target="/manifest/uses-sdk" mode="m">
+            <uses-sdk android:minSdkVersion="11" android:targetSdkVersion="22" />
+        </edit-config>
+        <source-file src="src/android/SobotPlugin.java" target-dir="src/com/wjzp/cordova/sobot"/>
+        <source-file src="src/android/SobotPreferences.java" target-dir="src/com/wjzp/cordova/sobot"/>
+
+        <framework src="src/android/sobot.gradle" custom="true" type="gradleReference" />
+        <framework src="com.sobot.chat:sobotsdk:2.3.0"/>
+        <framework src="com.squareup.okhttp3:okhttp:3.6.0"/>
+        <framework src="com.squareup.picasso:picasso:2.5.2"/>
+
+    </platform>
+</plugin>
