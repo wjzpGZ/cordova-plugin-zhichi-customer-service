@@ -10,15 +10,15 @@
 
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
-            <feature name="Qiyu">
-                <param name="ios-package" value="Qiyu"/>
+            <feature name="Sobot">
+                <param name="ios-package" value="Sobot"/>
                 <param name="onload" value="true"/>
             </feature>
-            <preference name="QIYU_APP_KEY" value="$QIYU_APP_KEY"/>
+            <preference name="SOBOT_APP_KEY" value="$SOBOT_APP_KEY"/>
         </config-file>
 
-        <header-file src="src/ios/Qiyu.h"/>
-        <source-file src="src/ios/Qiyu.m"/>
+        <header-file src="src/ios/Sobot.h"/>
+        <source-file src="src/ios/Sobot.m"/>
 
         <config-file target="*-Info.plist" parent="NSPhotoLibraryUsageDescription">
             <string>请允许黔赞访问您的相册</string>
