@@ -91,7 +91,7 @@
         
         //配置UI
         ZCKitInfo *uiInfo= [ZCKitInfo new];
-        uiInfo.customBannerColor = [UIColor colorWithRed:233.0/255.0 green:69.0/255.0 blue:63.0/255.0 alpha:1.0];
+        uiInfo.customBannerColor = [UIColor colorWithRed:113.0/255.0 green:129.0/255.0 blue:126.0/255.0 alpha:1.0];
         uiInfo.imagePickerColor = uiInfo.customBannerColor;
         uiInfo.socketStatusButtonBgColor = uiInfo.customBannerColor;
         uiInfo.isOpenRecord = YES;
